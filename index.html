@@ -2,7 +2,6 @@
 <html lang="ru">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,127 +10,83 @@
 <link rel="stylesheet" href="style.css">
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
 </head>
 
 <body>
 
-<!-- ГЛАВНАЯ -->
+<div class="app">
 
-<div id="home-page">
+<!-- HOME -->
+<section id="home" class="page active">
 
     <h1>🎮 ARENDA PLAYSTATION</h1>
+    <p class="sub">Более 2500 игр</p>
 
-    <p class="subtitle">
-        Более 2500 игр
-    </p>
-
-    <div class="console-card">
-
-        <div class="status free">
-            ● Свободна
-        </div>
-
+    <div class="card">
+        <div class="status free">● Свободна</div>
         <h2>PlayStation 4 Pro</h2>
-
     </div>
 
-    <div class="console-card">
-
-        <div class="status free">
-            ● Свободна
-        </div>
-
+    <div class="card">
+        <div class="status free">● Свободна</div>
         <h2>PlayStation 5 Pro</h2>
-
     </div>
 
-</div>
+</section>
 
-
-<!-- КАТАЛОГ ИГР -->
-
-<div id="games-page" style="display:none;">
+<!-- GAMES -->
+<section id="games" class="page">
 
     <h1>🎯 Каталог игр</h1>
 
-    <div class="menu-card">FIFA 25</div>
+    <div class="grid">
+        <div class="tile">GTA V</div>
+        <div class="tile">FIFA 25</div>
+        <div class="tile">UFC 5</div>
+        <div class="tile">Spider-Man 2</div>
+        <div class="tile">Cyberpunk 2077</div>
+        <div class="tile">The Last Of Us</div>
+    </div>
 
-    <div class="menu-card">UFC 5</div>
+</section>
 
-    <div class="menu-card">GTA V</div>
-
-    <div class="menu-card">Spider-Man 2</div>
-
-    <div class="menu-card">Cyberpunk 2077</div>
-
-</div>
-
-
-<!-- БРОНИРОВАНИЕ -->
-
-<div id="booking-page" style="display:none;">
+<!-- BOOKING -->
+<section id="booking" class="page">
 
     <h1>📅 Бронирование</h1>
 
-    <div class="menu-card">
-
-        Здесь позже появится календарь бронирования
-
+    <div class="card">
+        Календарь и бронирование скоро
     </div>
 
-</div>
+</section>
 
-
-<!-- ПРОФИЛЬ -->
-
-<div id="profile-page" style="display:none;">
+<!-- PROFILE -->
+<section id="profile" class="page">
 
     <h1>👤 Профиль</h1>
 
-    <div class="profile-card">
-
-        <div class="avatar">
-            👤
-        </div>
-
-        <h2 id="username">
-            Пользователь
-        </h2>
-
-        <p id="userid">
-            ID: 0
-        </p>
-
+    <div class="card">
+        <div class="avatar">👤</div>
+        <p id="name">Пользователь</p>
+        <p id="id">ID: -</p>
     </div>
+
+</section>
 
 </div>
 
+<!-- NAV -->
+<div class="nav">
 
-<!-- НИЖНЕЕ МЕНЮ -->
-
-<div class="bottom-nav">
-
-    <button onclick="showPage('home-page')">
-        Главная
-    </button>
-
-    <button onclick="showPage('games-page')">
-        Игры
-    </button>
-
-    <button onclick="showPage('booking-page')">
-        Бронь
-    </button>
-
-    <button onclick="showPage('profile-page')">
-        Профиль
-    </button>
+<button data-page="home">Главная</button>
+<button data-page="games">Игры</button>
+<button data-page="booking">Бронь</button>
+<button data-page="profile">Профиль</button>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
