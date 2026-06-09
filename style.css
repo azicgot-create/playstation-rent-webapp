@@ -1,111 +1,22 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+const tg = window.Telegram.WebApp;
+
+tg.expand();
+
+function showPage(pageId){
+
+    document.getElementById("home-page").style.display = "none";
+    document.getElementById("games-page").style.display = "none";
+    document.getElementById("booking-page").style.display = "none";
+    document.getElementById("profile-page").style.display = "none";
+
+    document.getElementById(pageId).style.display = "block";
 }
 
-body{
-    background:#0f172a;
-    color:white;
-    font-family:Arial, sans-serif;
-    padding:20px;
-    padding-bottom:100px;
-}
+if(tg.initDataUnsafe.user){
 
-/* ---------------- */
-/* HEADER */
-/* ---------------- */
+    document.getElementById("username").innerText =
+        tg.initDataUnsafe.user.first_name;
 
-.header{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.header h1{
-    font-size:28px;
-    margin-bottom:10px;
-}
-
-.header p{
-    color:#94a3b8;
-    font-size:16px;
-}
-
-/* ---------------- */
-/* КАРТОЧКИ */
-/* ---------------- */
-
-.console-card{
-    background:#1e293b;
-    border-radius:20px;
-    padding:25px;
-    margin-bottom:20px;
-    box-shadow:0 0 20px rgba(0,0,0,0.3);
-    transition:0.2s;
-}
-
-.console-card:active{
-    transform:scale(0.98);
-}
-
-.console-card h2{
-    margin-top:12px;
-    font-size:22px;
-}
-
-.status{
-    display:inline-block;
-    padding:8px 14px;
-    border-radius:999px;
-    font-size:14px;
-    font-weight:bold;
-}
-
-.free{
-    background:#14532d;
-    color:#86efac;
-}
-
-.busy{
-    background:#7f1d1d;
-    color:#fca5a5;
-}
-
-/* ---------------- */
-/* НИЖНЕЕ МЕНЮ */
-/* ---------------- */
-
-.bottom-menu{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-
-    background:#1e293b;
-
-    display:flex;
-    justify-content:space-around;
-
-    padding:12px 0;
-
-    border-top:1px solid #334155;
-}
-
-.bottom-menu button{
-    background:none;
-    border:none;
-
-    color:white;
-
-    font-size:28px;
-
-    cursor:pointer;
-}
-
-/* ---------------- */
-/* АНИМАЦИИ */
-/* ---------------- */
-
-.console-card:hover{
-    background:#273449;
+    document.getElementById("userid").innerText =
+        "ID: " + tg.initDataUnsafe.user.id;
 }
