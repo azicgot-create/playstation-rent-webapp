@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,33 +11,127 @@
 <link rel="stylesheet" href="style.css">
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 </head>
 
 <body>
 
-<div class="header">
+<!-- ГЛАВНАЯ -->
+
+<div id="home-page">
+
     <h1>🎮 ARENDA PLAYSTATION</h1>
-    <p>Более 2500 игр</p>
+
+    <p class="subtitle">
+        Более 2500 игр
+    </p>
+
+    <div class="console-card">
+
+        <div class="status free">
+            ● Свободна
+        </div>
+
+        <h2>PlayStation 4 Pro</h2>
+
+    </div>
+
+    <div class="console-card">
+
+        <div class="status free">
+            ● Свободна
+        </div>
+
+        <h2>PlayStation 5 Pro</h2>
+
+    </div>
+
 </div>
 
-<div class="console-card">
-    <span class="status free">🟢 В наличии</span>
-    <h2>PlayStation 4 Pro</h2>
+
+<!-- КАТАЛОГ ИГР -->
+
+<div id="games-page" style="display:none;">
+
+    <h1>🎯 Каталог игр</h1>
+
+    <div class="menu-card">FIFA 25</div>
+
+    <div class="menu-card">UFC 5</div>
+
+    <div class="menu-card">GTA V</div>
+
+    <div class="menu-card">Spider-Man 2</div>
+
+    <div class="menu-card">Cyberpunk 2077</div>
+
 </div>
 
-<div class="console-card">
-    <span class="status free">🟢 В наличии</span>
-    <h2>PlayStation 5 Pro</h2>
+
+<!-- БРОНИРОВАНИЕ -->
+
+<div id="booking-page" style="display:none;">
+
+    <h1>📅 Бронирование</h1>
+
+    <div class="menu-card">
+
+        Здесь позже появится календарь бронирования
+
+    </div>
+
 </div>
 
-<div class="bottom-menu">
-    <button>🏠</button>
-    <button>🎮</button>
-    <button>📅</button>
-    <button>👤</button>
+
+<!-- ПРОФИЛЬ -->
+
+<div id="profile-page" style="display:none;">
+
+    <h1>👤 Профиль</h1>
+
+    <div class="profile-card">
+
+        <div class="avatar">
+            👤
+        </div>
+
+        <h2 id="username">
+            Пользователь
+        </h2>
+
+        <p id="userid">
+            ID: 0
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- НИЖНЕЕ МЕНЮ -->
+
+<div class="bottom-nav">
+
+    <button onclick="showPage('home-page')">
+        Главная
+    </button>
+
+    <button onclick="showPage('games-page')">
+        Игры
+    </button>
+
+    <button onclick="showPage('booking-page')">
+        Бронь
+    </button>
+
+    <button onclick="showPage('profile-page')">
+        Профиль
+    </button>
+
 </div>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
