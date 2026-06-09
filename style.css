@@ -1,22 +1,92 @@
-const tg = window.Telegram.WebApp;
-
-tg.expand();
-
-function showPage(pageId){
-
-    document.getElementById("home-page").style.display = "none";
-    document.getElementById("games-page").style.display = "none";
-    document.getElementById("booking-page").style.display = "none";
-    document.getElementById("profile-page").style.display = "none";
-
-    document.getElementById(pageId).style.display = "block";
+body {
+    margin: 0;
+    font-family: Arial;
+    background: radial-gradient(circle at top, #0b1220, #05070f);
+    color: white;
 }
 
-if(tg.initDataUnsafe.user){
+.app {
+    padding: 15px;
+    padding-bottom: 90px;
+}
 
-    document.getElementById("username").innerText =
-        tg.initDataUnsafe.user.first_name;
+h1 {
+    margin: 10px 0;
+}
 
-    document.getElementById("userid").innerText =
-        "ID: " + tg.initDataUnsafe.user.id;
+.sub {
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: linear-gradient(145deg, #111a2e, #0c1322);
+    padding: 15px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.status {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.free {
+    background: #1f8f4a;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.tile {
+    background: #121c33;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.avatar {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* NAV BAR */
+.nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0b1220;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.nav button.active {
+    opacity: 1;
+    color: #4da3ff;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
 }
