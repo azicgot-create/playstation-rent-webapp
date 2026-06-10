@@ -2,112 +2,142 @@ const tg = window.Telegram.WebApp;
 
 tg.expand();
 
+// --------------------
+// ПОЛЬЗОВАТЕЛЬ
+// --------------------
+
 const user = tg.initDataUnsafe.user;
 
 if (user) {
 
-    const avatar = document.getElementById("avatar");
-    const name = document.getElementById("name");
-    const username = document.getElementById("username");
-    const userid = document.getElementById("userid");
+    document.getElementById("avatar").src =
+        user.photo_url || "https://placehold.co/150";
 
-    if (avatar && user.photo_url) {
-        avatar.src = user.photo_url;
-    }
+    document.getElementById("name").innerText =
+        `${user.first_name || ""} ${user.last_name || ""}`;
 
-    if (name) {
-        name.innerText =
-            (user.first_name || "") +
-            " " +
-            (user.last_name || "");
-    }
-
-    if (username) {
-        username.innerText =
-            user.username
+    document.getElementById("username").innerText =
+        user.username
             ? "@" + user.username
-            : "Без username";
-    }
+            : "Username отсутствует";
 
-    if (userid) {
-        userid.innerText =
-            "ID: " + user.id;
-    }
+    document.getElementById("userid").innerText =
+        "ID: " + user.id;
 }
+
+// --------------------
+// ПЕРЕКЛЮЧЕНИЕ СТРАНИЦ
+// --------------------
 
 function showPage(pageId, button) {
 
-    document
-        .querySelectorAll(".page")
-        .forEach(page => {
-            page.classList.remove("active");
-        });
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
 
-    document
-        .getElementById(pageId)
-        .classList.add("active");
+    document.getElementById(pageId).classList.add("active");
 
-    document
-        .querySelectorAll(".nav-btn")
-        .forEach(btn => {
-            btn.classList.remove("active");
-        });
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
 
-    if(button){
+    if (button) {
         button.classList.add("active");
     }
 }
 
-function calculatePrice(){
+// --------------------
+// ВЫБОР ПРИСТАВКИ
+// --------------------
+
+let selectedConsole = "";
+
+function openBooking(consoleName) {
+
+    selectedConsole = consoleName;
+
+    document.getElementById(
+        "selected-console"
+    ).innerText = consoleName;
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(
+        "booking-page"
+    ).classList.add("active");
+
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+}
+
+// --------------------
+// РАСЧЁТ СТОИМОСТИ
+// --------------------
+
+function calculatePrice() {
 
     const hours =
-        parseInt(
+        Number(
             document.getElementById("hours").value
-        ) || 1;
+        );
 
     const delivery =
         document.getElementById("delivery").checked;
 
     let total = hours * 250;
 
-    if(delivery){
+    if (delivery) {
         total += 50;
     }
 
     document.getElementById(
         "total-price"
-    ).innerText =
-        "Итого: " + total + " ₽";
+    ).innerText = `Итого: ${total} ₽`;
 }
 
-function goToPayment(){
+// --------------------
+// ОПЛАТА
+// --------------------
+
+function goToPayment() {
+
+    const date =
+        document.getElementById("rent-date").value;
+
+    const time =
+        document.getElementById("rent-time").value;
+
+    const hours =
+        document.getElementById("hours").value;
+
+    if (!date || !time) {
+
+        alert(
+            "Выберите дату и время аренды"
+        );
+
+        return;
+    }
 
     alert(
-        "Экран оплаты будет следующим этапом"
+`Бронирование
+
+Приставка:
+${selectedConsole}
+
+Дата:
+${date}
+
+Время:
+${time}
+
+Часов:
+${hours}
+
+Следующий этап:
+Оплата`
     );
 }
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        const buttons =
-            document.querySelectorAll(".rent-btn");
-
-        buttons.forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    showPage(
-                        "booking-page"
-                    );
-
-                }
-            );
-
-        });
-
-    }
-);
