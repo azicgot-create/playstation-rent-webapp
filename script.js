@@ -25,8 +25,8 @@ if (user) {
     if (username) {
         username.innerText =
             user.username
-                ? "@" + user.username
-                : "Без username";
+            ? "@" + user.username
+            : "Без username";
     }
 
     if (userid) {
@@ -53,7 +53,38 @@ function showPage(pageId, button) {
             btn.classList.remove("active");
         });
 
-    button.classList.add("active");
+    if(button){
+        button.classList.add("active");
+    }
+}
+
+function calculatePrice(){
+
+    const hours =
+        parseInt(
+            document.getElementById("hours").value
+        ) || 1;
+
+    const delivery =
+        document.getElementById("delivery").checked;
+
+    let total = hours * 250;
+
+    if(delivery){
+        total += 50;
+    }
+
+    document.getElementById(
+        "total-price"
+    ).innerText =
+        "Итого: " + total + " ₽";
+}
+
+function goToPayment(){
+
+    alert(
+        "Экран оплаты будет следующим этапом"
+    );
 }
 
 document.addEventListener(
@@ -69,7 +100,9 @@ document.addEventListener(
                 "click",
                 () => {
 
-                    showBookingPage();
+                    showPage(
+                        "booking-page"
+                    );
 
                 }
             );
@@ -78,23 +111,3 @@ document.addEventListener(
 
     }
 );
-
-function showBookingPage() {
-
-    document
-        .querySelectorAll(".page")
-        .forEach(page => {
-            page.classList.remove("active");
-        });
-
-    document
-        .getElementById("booking-page")
-        .classList.add("active");
-
-    document
-        .querySelectorAll(".nav-btn")
-        .forEach(btn => {
-            btn.classList.remove("active");
-        });
-
-}
