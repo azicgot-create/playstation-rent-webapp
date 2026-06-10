@@ -3,103 +3,92 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ARENDA PLAYSTATION</title>
+<title>ARENDA PLAYSTATION</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 </head>
 
 <body>
 
-    <div id="home-page" class="page active">
+<!-- ГЛАВНАЯ -->
 
-        <h1>ARENDA PLAYSTATION</h1>
+<div id="home-page" class="page active">
 
-        <p class="subtitle">
-            Более 2500 игр
-        </p>
+    <h1>ARENDA PLAYSTATION</h1>
 
-        <div class="console-card">
+    <p class="subtitle">
+        Более 2500 игр
+    </p>
 
-            <div class="status free">
-                ● Свободна
-            </div>
+    <div class="console-card">
 
-            <h2>PlayStation 4 Pro</h2>
-
-            <p>
-                Более 2500 игр
-            </p>
-
-            <button class="rent-btn">
-                Выбрать PS4
-            </button>
-
+        <div class="status free">
+            ● Свободна
         </div>
 
-        <div class="console-card">
+        <h2>PlayStation 4 Pro</h2>
 
-            <div class="status busy">
-                ● Забронирована
-            </div>
-
-            <h2>PlayStation 5 Pro</h2>
-
-            <p>
-                Более 2500 игр
-            </p>
-
-            <button class="rent-btn">
-                Выбрать PS5
-            </button>
-
-        </div>
+        <button
+            class="big-button rent-btn"
+            onclick="openBooking('PS4 Pro')"
+        >
+            Выбрать
+        </button>
 
     </div>
 
-    <div id="games-page" class="page">
+    <div class="console-card">
 
-        <h1>Каталог игр</h1>
+        <div class="status free">
+            ● Свободна
+        </div>
 
-        <div class="game-card">🔫 Шутеры</div>
+        <h2>PlayStation 5 Pro</h2>
 
-        <div class="game-card">🧙 RPG</div>
-
-        <div class="game-card">🏎️ Гонки</div>
-
-        <div class="game-card">🥊 Файтинги</div>
-
-        <div class="game-card">👻 Хорроры</div>
-
-        <div class="game-card">🌍 Открытый мир</div>
-
-        <div class="game-card">👥 Кооперативные</div>
-
-        <div class="game-card">🧸 Детские игры</div>
+        <button
+            class="big-button rent-btn"
+            onclick="openBooking('PS5 Pro')"
+        >
+            Выбрать
+        </button>
 
     </div>
 
-    <div id="booking-page" class="page">
+</div>
+
+<!-- ИГРЫ -->
+
+<div id="games-page" class="page">
+
+    <h1>Каталог игр</h1>
+
+    <div class="card">⚽ FIFA 25</div>
+    <div class="card">🥊 UFC 5</div>
+    <div class="card">🚗 GTA V</div>
+    <div class="card">🕷 Spider-Man 2</div>
+    <div class="card">⚔ God Of War Ragnarök</div>
+    <div class="card">🎯 И ещё более 2500 игр</div>
+
+</div>
+
+<!-- БРОНЬ -->
+
+<div id="booking-page" class="page">
 
     <h1>Бронирование</h1>
 
     <div class="card">
 
-        <label>Приставка</label>
-
-        <select id="console">
-
-            <option>PlayStation 4 Pro</option>
-
-            <option>PlayStation 5 Pro</option>
-
-        </select>
+        <h2 id="selected-console">
+            PlayStation
+        </h2>
 
     </div>
 
@@ -116,13 +105,24 @@
 
     <div class="card">
 
+        <label>Время начала</label>
+
+        <input
+            type="time"
+            id="rent-time"
+        >
+
+    </div>
+
+    <div class="card">
+
         <label>Количество часов</label>
 
         <input
             type="number"
             id="hours"
-            min="1"
             value="1"
+            min="1"
         >
 
     </div>
@@ -145,9 +145,7 @@
     <div class="card">
 
         <h2 id="total-price">
-
             Итого: 250 ₽
-
         </h2>
 
     </div>
@@ -156,130 +154,100 @@
         class="big-button"
         onclick="calculatePrice()"
     >
-
         Рассчитать стоимость
-
     </button>
 
     <button
         class="big-button"
         onclick="goToPayment()"
     >
-
         Перейти к оплате
-
     </button>
 
 </div>
-    <div id="support-page" class="page">
 
-        <h1>Поддержка</h1>
+<!-- ПОДДЕРЖКА -->
 
-        <div class="card">
+<div id="support-page" class="page">
 
-            Telegram:
+    <h1>Поддержка</h1>
 
-            <br><br>
+    <div class="card">
 
-            @heartbreakdrip
+        Telegram:
+        <br><br>
 
-        </div>
-
-    </div>
-
-    <div id="profile-page" class="page">
-
-        <h1>Профиль</h1>
-
-        <div class="profile-card">
-
-            <img
-                id="avatar"
-                class="avatar"
-                src="https://placehold.co/150"
-            >
-
-            <h2 id="name">
-                Пользователь
-            </h2>
-
-            <p id="username">
-                @username
-            </p>
-
-            <p id="userid">
-                ID
-            </p>
-
-        </div>
-
-        <div class="card">
-            История заказов появится позже
-        </div>
+        @heartbreakdrip
 
     </div>
 
-    <nav class="bottom-nav">
+</div>
 
-        <button
-            class="nav-btn active"
-            onclick="showPage('home-page', this)"
+<!-- ПРОФИЛЬ -->
+
+<div id="profile-page" class="page">
+
+    <h1>Профиль</h1>
+
+    <div class="profile-card">
+
+        <img
+            id="avatar"
+            class="avatar"
+            src=""
         >
 
-            <img src="images/home.png">
+        <h2 id="name"></h2>
 
-            <span>Главная</span>
+        <p id="username"></p>
 
-        </button>
+        <p id="userid"></p>
 
-        <button
-            class="nav-btn"
-            onclick="showPage('games-page', this)"
-        >
+    </div>
 
-            <img src="images/games.png">
+    <div class="card">
 
-            <span>Игры</span>
+        История бронирований скоро появится
 
-        </button>
+    </div>
 
-        <button
-            class="nav-btn"
-            onclick="showPage('booking-page', this)"
-        >
+</div>
 
-            <img src="images/booking.png">
+<nav class="bottom-nav">
 
-            <span>Бронь</span>
+    <button class="nav-btn active"
+        onclick="showPage('home-page', this)">
+        <img src="images/home.png">
+        <span>Главная</span>
+    </button>
 
-        </button>
+    <button class="nav-btn"
+        onclick="showPage('games-page', this)">
+        <img src="images/games.png">
+        <span>Игры</span>
+    </button>
 
-        <button
-            class="nav-btn"
-            onclick="showPage('support-page', this)"
-        >
+    <button class="nav-btn"
+        onclick="showPage('booking-page', this)">
+        <img src="images/booking.png">
+        <span>Бронь</span>
+    </button>
 
-            <img src="images/support.png">
+    <button class="nav-btn"
+        onclick="showPage('support-page', this)">
+        <img src="images/support.png">
+        <span>Поддержка</span>
+    </button>
 
-            <span>Поддержка</span>
+    <button class="nav-btn"
+        onclick="showPage('profile-page', this)">
+        <img src="images/profile.png">
+        <span>Профиль</span>
+    </button>
 
-        </button>
+</nav>
 
-        <button
-            class="nav-btn"
-            onclick="showPage('profile-page', this)"
-        >
-
-            <img src="images/profile.png">
-
-            <span>Профиль</span>
-
-        </button>
-
-    </nav>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
-
 </html>
