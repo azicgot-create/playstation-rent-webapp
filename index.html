@@ -2,91 +2,107 @@
 <html lang="ru">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARENDA PLAYSTATION</title>
 
-<title>ARENDA PLAYSTATION</title>
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="style.css">
-
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 
 <body>
 
-<div class="app">
+    <div id="home-page" class="page active">
 
-<!-- HOME -->
-<section id="home" class="page active">
+        <h1>ARENDA PLAYSTATION</h1>
 
-    <h1>🎮 ARENDA PLAYSTATION</h1>
-    <p class="sub">Более 2500 игр</p>
+        <p class="subtitle">
+            Более 2500 игр
+        </p>
 
-    <div class="card">
-        <div class="status free">● Свободна</div>
-        <h2>PlayStation 4 Pro</h2>
+        <div class="console-card">
+            <div class="status free">● Свободна</div>
+            <h2>PlayStation 4 Pro</h2>
+        </div>
+
+        <div class="console-card">
+            <div class="status busy">● Забронирована</div>
+            <h2>PlayStation 5 Pro</h2>
+        </div>
+
     </div>
 
-    <div class="card">
-        <div class="status free">● Свободна</div>
-        <h2>PlayStation 5 Pro</h2>
+    <div id="games-page" class="page">
+        <h1>Каталог игр</h1>
+
+        <div class="card">
+            FIFA 25
+        </div>
+
+        <div class="card">
+            GTA V
+        </div>
+
+        <div class="card">
+            UFC 5
+        </div>
     </div>
 
-</section>
+    <div id="booking-page" class="page">
+        <h1>Бронирование</h1>
 
-<!-- GAMES -->
-<section id="games" class="page">
-
-    <h1>🎯 Каталог игр</h1>
-
-    <div class="grid">
-        <div class="tile">GTA V</div>
-        <div class="tile">FIFA 25</div>
-        <div class="tile">UFC 5</div>
-        <div class="tile">Spider-Man 2</div>
-        <div class="tile">Cyberpunk 2077</div>
-        <div class="tile">The Last Of Us</div>
+        <div class="card">
+            Тут позже будет календарь брони
+        </div>
     </div>
 
-</section>
+    <div id="support-page" class="page">
+        <h1>Поддержка</h1>
 
-<!-- BOOKING -->
-<section id="booking" class="page">
-
-    <h1>📅 Бронирование</h1>
-
-    <div class="card">
-        Календарь и бронирование скоро
+        <div class="card">
+            @heartbreakdrip
+        </div>
     </div>
 
-</section>
+    <div id="profile-page" class="page">
+        <h1>Профиль</h1>
 
-<!-- PROFILE -->
-<section id="profile" class="page">
-
-    <h1>👤 Профиль</h1>
-
-    <div class="card">
-        <div class="avatar">👤</div>
-        <p id="name">Пользователь</p>
-        <p id="id">ID: -</p>
+        <div class="card">
+            История заказов появится позже
+        </div>
     </div>
 
-</section>
+    <nav class="bottom-nav">
 
-</div>
+        <button class="nav-btn active" onclick="showPage('home-page', this)">
+            <img src="images/home.png">
+            <span>Главная</span>
+        </button>
 
-<!-- NAV -->
-<div class="nav">
+        <button class="nav-btn" onclick="showPage('games-page', this)">
+            <img src="images/games.png">
+            <span>Игры</span>
+        </button>
 
-<button data-page="home">Главная</button>
-<button data-page="games">Игры</button>
-<button data-page="booking">Бронь</button>
-<button data-page="profile">Профиль</button>
+        <button class="nav-btn" onclick="showPage('booking-page', this)">
+            <img src="images/booking.png">
+            <span>Бронь</span>
+        </button>
 
-</div>
+        <button class="nav-btn" onclick="showPage('support-page', this)">
+            <img src="images/support.png">
+            <span>Поддержка</span>
+        </button>
 
-<script src="script.js"></script>
+        <button class="nav-btn" onclick="showPage('profile-page', this)">
+            <img src="images/profile.png">
+            <span>Профиль</span>
+        </button>
+
+    </nav>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
