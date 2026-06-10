@@ -2,13 +2,17 @@
 <html lang="ru">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ARENDA PLAYSTATION</title>
 
     <link rel="stylesheet" href="style.css">
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 </head>
 
 <body>
@@ -22,82 +26,178 @@
         </p>
 
         <div class="console-card">
-            <div class="status free">● Свободна</div>
+
+            <div class="status free">
+                ● Свободна
+            </div>
+
             <h2>PlayStation 4 Pro</h2>
+
+            <p>
+                Более 2500 игр
+            </p>
+
+            <button class="rent-btn">
+                Выбрать PS4
+            </button>
+
         </div>
 
         <div class="console-card">
-            <div class="status busy">● Забронирована</div>
+
+            <div class="status busy">
+                ● Забронирована
+            </div>
+
             <h2>PlayStation 5 Pro</h2>
+
+            <p>
+                Более 2500 игр
+            </p>
+
+            <button class="rent-btn">
+                Выбрать PS5
+            </button>
+
         </div>
 
     </div>
 
     <div id="games-page" class="page">
+
         <h1>Каталог игр</h1>
 
-        <div class="card">
-            FIFA 25
-        </div>
+        <div class="game-card">🔫 Шутеры</div>
 
-        <div class="card">
-            GTA V
-        </div>
+        <div class="game-card">🧙 RPG</div>
 
-        <div class="card">
-            UFC 5
-        </div>
+        <div class="game-card">🏎️ Гонки</div>
+
+        <div class="game-card">🥊 Файтинги</div>
+
+        <div class="game-card">👻 Хорроры</div>
+
+        <div class="game-card">🌍 Открытый мир</div>
+
+        <div class="game-card">👥 Кооперативные</div>
+
+        <div class="game-card">🧸 Детские игры</div>
+
     </div>
 
     <div id="booking-page" class="page">
+
         <h1>Бронирование</h1>
 
         <div class="card">
-            Тут позже будет календарь брони
+            Календарь бронирования появится следующим этапом
         </div>
+
     </div>
 
     <div id="support-page" class="page">
+
         <h1>Поддержка</h1>
 
         <div class="card">
+
+            Telegram:
+
+            <br><br>
+
             @heartbreakdrip
+
         </div>
+
     </div>
 
     <div id="profile-page" class="page">
+
         <h1>Профиль</h1>
+
+        <div class="profile-card">
+
+            <img
+                id="avatar"
+                class="avatar"
+                src="https://placehold.co/150"
+            >
+
+            <h2 id="name">
+                Пользователь
+            </h2>
+
+            <p id="username">
+                @username
+            </p>
+
+            <p id="userid">
+                ID
+            </p>
+
+        </div>
 
         <div class="card">
             История заказов появится позже
         </div>
+
     </div>
 
     <nav class="bottom-nav">
 
-        <button class="nav-btn active" onclick="showPage('home-page', this)">
+        <button
+            class="nav-btn active"
+            onclick="showPage('home-page', this)"
+        >
+
             <img src="images/home.png">
+
             <span>Главная</span>
+
         </button>
 
-        <button class="nav-btn" onclick="showPage('games-page', this)">
+        <button
+            class="nav-btn"
+            onclick="showPage('games-page', this)"
+        >
+
             <img src="images/games.png">
+
             <span>Игры</span>
+
         </button>
 
-        <button class="nav-btn" onclick="showPage('booking-page', this)">
+        <button
+            class="nav-btn"
+            onclick="showPage('booking-page', this)"
+        >
+
             <img src="images/booking.png">
+
             <span>Бронь</span>
+
         </button>
 
-        <button class="nav-btn" onclick="showPage('support-page', this)">
+        <button
+            class="nav-btn"
+            onclick="showPage('support-page', this)"
+        >
+
             <img src="images/support.png">
+
             <span>Поддержка</span>
+
         </button>
 
-        <button class="nav-btn" onclick="showPage('profile-page', this)">
+        <button
+            class="nav-btn"
+            onclick="showPage('profile-page', this)"
+        >
+
             <img src="images/profile.png">
+
             <span>Профиль</span>
+
         </button>
 
     </nav>
@@ -105,4 +205,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
