@@ -141,3 +141,32 @@ ${hours}
 Оплата`
     );
 }
+function searchGames() {
+
+    const value =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    const games =
+        document.querySelectorAll(".game-card");
+
+    games.forEach(game => {
+
+        if (
+            game.innerText
+            .toLowerCase()
+            .includes(value)
+        ) {
+
+            game.style.display = "block";
+
+        } else {
+
+            game.style.display = "none";
+
+        }
+
+    });
+
+}
