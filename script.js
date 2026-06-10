@@ -6,45 +6,95 @@ const user = tg.initDataUnsafe.user;
 
 if (user) {
 
-    const profilePage = document.getElementById("profile-page");
+    const avatar = document.getElementById("avatar");
+    const name = document.getElementById("name");
+    const username = document.getElementById("username");
+    const userid = document.getElementById("userid");
 
-    profilePage.innerHTML = `
+    if (avatar && user.photo_url) {
+        avatar.src = user.photo_url;
+    }
 
-        <h1>Профиль</h1>
+    if (name) {
+        name.innerText =
+            (user.first_name || "") +
+            " " +
+            (user.last_name || "");
+    }
 
-        <div class="profile-card">
+    if (username) {
+        username.innerText =
+            user.username
+                ? "@" + user.username
+                : "Без username";
+    }
 
-            <img
-                src="${user.photo_url || 'https://placehold.co/150'}"
-                class="avatar"
-            >
-
-            <h2>${user.first_name || ''} ${user.last_name || ''}</h2>
-
-            <p>@${user.username || 'нет username'}</p>
-
-            <p>ID: ${user.id}</p>
-
-        </div>
-
-        <div class="card">
-            История бронирований появится позже
-        </div>
-
-    `;
+    if (userid) {
+        userid.innerText =
+            "ID: " + user.id;
+    }
 }
 
 function showPage(pageId, button) {
 
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-    });
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+            page.classList.remove("active");
+        });
 
-    document.getElementById(pageId).classList.add("active");
+    document
+        .getElementById(pageId)
+        .classList.add("active");
 
-    document.querySelectorAll(".nav-btn").forEach(btn => {
-        btn.classList.remove("active");
-    });
+    document
+        .querySelectorAll(".nav-btn")
+        .forEach(btn => {
+            btn.classList.remove("active");
+        });
 
     button.classList.add("active");
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const buttons =
+            document.querySelectorAll(".rent-btn");
+
+        buttons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    showBookingPage();
+
+                }
+            );
+
+        });
+
+    }
+);
+
+function showBookingPage() {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+            page.classList.remove("active");
+        });
+
+    document
+        .getElementById("booking-page")
+        .classList.add("active");
+
+    document
+        .querySelectorAll(".nav-btn")
+        .forEach(btn => {
+            btn.classList.remove("active");
+        });
+
 }
