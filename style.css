@@ -308,3 +308,39 @@ label{
     margin-bottom:10px;
     border:1px solid #1f2937;
 }
+.category-card{
+
+    background:#111827;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    border:1px solid #1f2937;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.category-card:hover{
+
+    transform:scale(1.02);
+
+}
+.booking-info{
+
+    color:#9ca3af;
+
+    font-size:14px;
+
+    margin-top:10px;
+
+}
