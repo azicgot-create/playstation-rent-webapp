@@ -36,8 +36,8 @@
         <h2>PlayStation 4 Pro</h2>
 
         <button
-            class="big-button rent-btn"
-            onclick="openBooking('PS4 Pro')"
+            class="big-button"
+            onclick="openBooking('PlayStation 4 Pro')"
         >
             Выбрать
         </button>
@@ -53,8 +53,8 @@
         <h2>PlayStation 5 Pro</h2>
 
         <button
-            class="big-button rent-btn"
-            onclick="openBooking('PS5 Pro')"
+            class="big-button"
+            onclick="openBooking('PlayStation 5 Pro')"
         >
             Выбрать
         </button>
@@ -63,102 +63,7 @@
 
 </div>
 
-<!-- ИГРЫ -->
-
-<div id="games-page" class="page">
-
-    <h1>Каталог игр</h1>
-
-    <input
-        type="text"
-        id="search"
-        placeholder="Поиск игры..."
-        onkeyup="searchGames()"
-        class="search-input"
-    >
-
-    <div class="category">
-
-        <h2>⚽ Спорт</h2>
-
-        <div class="game-card">FIFA 25</div>
-        <div class="game-card">UFC 5</div>
-        <div class="game-card">NHL 24</div>
-        <div class="game-card">NBA 2K</div>
-
-    </div>
-
-    <div class="category">
-
-        <h2>🔫 Шутеры</h2>
-
-        <div class="game-card">Call Of Duty Warzone</div>
-        <div class="game-card">Battlefield V</div>
-        <div class="game-card">DOOM Eternal</div>
-        <div class="game-card">Titanfall 2</div>
-        <div class="game-card">Far Cry 6</div>
-
-    </div>
-
-    <div class="category">
-
-        <h2>🏎 Гонки</h2>
-
-        <div class="game-card">Need For Speed</div>
-        <div class="game-card">Rocket League</div>
-        <div class="game-card">The Crew 2</div>
-        <div class="game-card">Dirt 5</div>
-
-    </div>
-
-    <div class="category">
-
-        <h2>🧙 RPG</h2>
-
-        <div class="game-card">Skyrim</div>
-        <div class="game-card">Bloodborne</div>
-        <div class="game-card">Persona 5 Royal</div>
-        <div class="game-card">Mass Effect</div>
-
-    </div>
-
-    <div class="category">
-
-        <h2>👻 Хорроры</h2>
-
-        <div class="game-card">The Last Of Us</div>
-        <div class="game-card">Control</div>
-        <div class="game-card">DOOM Eternal</div>
-        <div class="game-card">Life Is Strange</div>
-
-    </div>
-
-    <div class="category">
-
-        <h2>🌍 Открытый мир</h2>
-
-        <div class="game-card">GTA V</div>
-        <div class="game-card">Cyberpunk 2077</div>
-        <div class="game-card">Ghost Of Tsushima</div>
-        <div class="game-card">Death Stranding</div>
-
-    </div>
-
-    <div class="category">
-
-        <h2>🧸 Детские игры</h2>
-
-        <div class="game-card">LEGO</div>
-        <div class="game-card">Minecraft</div>
-        <div class="game-card">Terraria</div>
-        <div class="game-card">Sackboy</div>
-        <div class="game-card">Hello Neighbor</div>
-
-    </div>
-
-</div>
-
-<!-- БРОНЬ -->
+<!-- БРОНИРОВАНИЕ -->
 
 <div id="booking-page" class="page">
 
@@ -167,14 +72,14 @@
     <div class="card">
 
         <h2 id="selected-console">
-            PlayStation
+            Приставка
         </h2>
 
     </div>
 
     <div class="card">
 
-        <label>Дата аренды</label>
+        <label>Дата</label>
 
         <input
             type="date"
@@ -185,7 +90,7 @@
 
     <div class="card">
 
-        <label>Время начала</label>
+        <label>Время</label>
 
         <input
             type="time"
@@ -196,7 +101,7 @@
 
     <div class="card">
 
-        <label>Количество часов</label>
+        <label>Часов</label>
 
         <input
             type="number"
@@ -222,26 +127,97 @@
 
     </div>
 
+    <button
+        class="big-button"
+        onclick="openGamesSelection()"
+    >
+        Далее
+    </button>
+
+</div>
+
+<!-- ВЫБОР ИГР -->
+
+<div id="games-select-page" class="page">
+
+    <h1>Выберите игры</h1>
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Поиск игры..."
+        onkeyup="searchGames()"
+        class="search-input"
+    >
+
+    <div class="game-card">
+        <input type="checkbox" value="GTA V">
+        GTA V
+    </div>
+
+    <div class="game-card">
+        <input type="checkbox" value="FIFA 25">
+        FIFA 25
+    </div>
+
+    <div class="game-card">
+        <input type="checkbox" value="UFC 5">
+        UFC 5
+    </div>
+
+    <div class="game-card">
+        <input type="checkbox" value="Spider-Man 2">
+        Spider-Man 2
+    </div>
+
+    <div class="game-card">
+        <input type="checkbox" value="Cyberpunk 2077">
+        Cyberpunk 2077
+    </div>
+
+    <div class="game-card">
+        <input type="checkbox" value="God Of War Ragnarök">
+        God Of War Ragnarök
+    </div>
+
+    <div class="game-card">
+        <input type="checkbox" value="Ghost Of Tsushima">
+        Ghost Of Tsushima
+    </div>
+
+    <div class="game-card">
+        <input type="checkbox" value="Hogwarts Legacy">
+        Hogwarts Legacy
+    </div>
+
+    <button
+        class="big-button"
+        onclick="createOrder()"
+    >
+        Продолжить
+    </button>
+
+</div>
+
+<!-- ПОДТВЕРЖДЕНИЕ -->
+
+<div id="confirm-page" class="page">
+
+    <h1>Ваш заказ</h1>
+
     <div class="card">
 
-        <h2 id="total-price">
-            Итого: 250 ₽
-        </h2>
+        <div id="order-info">
+
+        </div>
 
     </div>
 
     <button
         class="big-button"
-        onclick="calculatePrice()"
-    >
-        Рассчитать стоимость
-    </button>
-
-    <button
-        class="big-button"
         onclick="goToPayment()"
     >
-        Перейти к оплате
+        Оплатить
     </button>
 
 </div>
@@ -255,6 +231,7 @@
     <div class="card">
 
         Telegram:
+
         <br><br>
 
         @heartbreakdrip
@@ -287,40 +264,52 @@
 
     <div class="card">
 
-        История бронирований скоро появится
+        История заказов скоро появится
 
     </div>
 
 </div>
 
+<!-- НИЖНЕЕ МЕНЮ -->
+
 <nav class="bottom-nav">
 
-    <button class="nav-btn active"
-        onclick="showPage('home-page', this)">
+    <button
+        class="nav-btn active"
+        onclick="showPage('home-page', this)"
+    >
         <img src="images/home.png">
         <span>Главная</span>
     </button>
 
-    <button class="nav-btn"
-        onclick="showPage('games-page', this)">
-        <img src="images/games.png">
-        <span>Игры</span>
-    </button>
-
-    <button class="nav-btn"
-        onclick="showPage('booking-page', this)">
+    <button
+        class="nav-btn"
+        onclick="showPage('booking-page', this)"
+    >
         <img src="images/booking.png">
         <span>Бронь</span>
     </button>
 
-    <button class="nav-btn"
-        onclick="showPage('support-page', this)">
+    <button
+        class="nav-btn"
+        onclick="showPage('games-select-page', this)"
+    >
+        <img src="images/games.png">
+        <span>Игры</span>
+    </button>
+
+    <button
+        class="nav-btn"
+        onclick="showPage('support-page', this)"
+    >
         <img src="images/support.png">
         <span>Поддержка</span>
     </button>
 
-    <button class="nav-btn"
-        onclick="showPage('profile-page', this)">
+    <button
+        class="nav-btn"
+        onclick="showPage('profile-page', this)"
+    >
         <img src="images/profile.png">
         <span>Профиль</span>
     </button>
